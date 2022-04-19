@@ -37,16 +37,27 @@ public class Point
          => Distance (this, otherPoint);
    public override string ToString ()
      => $"{{X={X}, Y={Y}, C={C}}}";
+    
 }
 class Program 
 {
     static void Main(string[] args)
     {
-Console. Write ("Введите через пробел координаты первой точки: ");
-Point a = Point.Parse(Console.ReadLine());
-Console. Write ("Введите через пробел координаты второй точки: ");
-Point b = Point.Parse(Console.ReadLine());
-Console. WriteLine($"Расстояние от точки {a} до точки {b} равно {a. Distance (b)}");
- 
+        for(;;)
+        {
+            try
+            {
+                Console. Write ("Введите через пробел координаты первой точки: ");
+                Point a = Point.Parse(Console.ReadLine());
+                Console. Write ("Введите через пробел координаты второй точки: ");
+                Point b = Point.Parse(Console.ReadLine());
+                Console. WriteLine($"Расстояние от точки {a} до точки {b} равно {a. Distance (b)}");
+                break;
+            }
+            catch (System.FormatException)
+            {
+                Console.WriteLine("Ошибка!Вы ввели не целое число!");
+            }
+        }
     }
 }
